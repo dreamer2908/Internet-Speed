@@ -62,6 +62,7 @@ namespace Internet_Speed
             this.restoreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.trayToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.showPingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.groupBox1.SuspendLayout();
             this.grbInterface.SuspendLayout();
@@ -323,7 +324,6 @@ namespace Internet_Speed
             // 
             this.notifyIcon1.ContextMenuStrip = this.cmsTrayMenu;
             this.notifyIcon1.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon1.Icon")));
-            this.notifyIcon1.Visible = true;
             this.notifyIcon1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.notifyIcon1_MouseDoubleClick);
             // 
             // cmsTrayMenu
@@ -332,37 +332,45 @@ namespace Internet_Speed
             this.changePingTargetToolStripMenuItem,
             this.restoreToolStripMenuItem,
             this.trayToolStripMenuItem,
-            this.exitToolStripMenuItem});
+            this.exitToolStripMenuItem,
+            this.showPingToolStripMenuItem});
             this.cmsTrayMenu.Name = "cmsTrayMenu";
-            this.cmsTrayMenu.Size = new System.Drawing.Size(199, 114);
+            this.cmsTrayMenu.Size = new System.Drawing.Size(235, 136);
             // 
             // changePingTargetToolStripMenuItem
             // 
             this.changePingTargetToolStripMenuItem.Name = "changePingTargetToolStripMenuItem";
-            this.changePingTargetToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
+            this.changePingTargetToolStripMenuItem.Size = new System.Drawing.Size(234, 22);
             this.changePingTargetToolStripMenuItem.Text = "Change ping target...";
             this.changePingTargetToolStripMenuItem.Click += new System.EventHandler(this.changePingTargetToolStripMenuItem_Click);
             // 
             // restoreToolStripMenuItem
             // 
             this.restoreToolStripMenuItem.Name = "restoreToolStripMenuItem";
-            this.restoreToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
+            this.restoreToolStripMenuItem.Size = new System.Drawing.Size(234, 22);
             this.restoreToolStripMenuItem.Text = "Restore";
             this.restoreToolStripMenuItem.Click += new System.EventHandler(this.restoreToolStripMenuItem_Click);
             // 
             // trayToolStripMenuItem
             // 
             this.trayToolStripMenuItem.Name = "trayToolStripMenuItem";
-            this.trayToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
+            this.trayToolStripMenuItem.Size = new System.Drawing.Size(234, 22);
             this.trayToolStripMenuItem.Text = "Keep Tray Icon";
             this.trayToolStripMenuItem.Click += new System.EventHandler(this.trayToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(234, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
+            // 
+            // showPingToolStripMenuItem
+            // 
+            this.showPingToolStripMenuItem.CheckOnClick = true;
+            this.showPingToolStripMenuItem.Name = "showPingToolStripMenuItem";
+            this.showPingToolStripMenuItem.Size = new System.Drawing.Size(234, 22);
+            this.showPingToolStripMenuItem.Text = "Show Ping info in Tray Icon";
             // 
             // frmMainForm
             // 
@@ -420,6 +428,7 @@ namespace Internet_Speed
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem trayToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem changePingTargetToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem showPingToolStripMenuItem;
     }
 }
 

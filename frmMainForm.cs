@@ -37,7 +37,9 @@ namespace Internet_Speed
             updateNetworkInterfaceList();
 
             // interface stuffs
-            bool showTrayIconByDefault = false;
+            bool showTrayIconByDefault = true;
+            //showPingInfoInTray = true;
+            showPingToolStripMenuItem.Checked = true;
             notifyIcon1.Visible = showTrayIconByDefault;
             keepTrayIcon = showTrayIconByDefault;
             trayToolStripMenuItem.Checked = keepTrayIcon;
@@ -64,6 +66,7 @@ namespace Internet_Speed
         MouseButtons clickedButton = MouseButtons.Left;
         Boolean mouseClicked = false;
         Boolean keepTrayIcon = false;
+        //Boolean showPingInfoInTray = true;
 
         // ping variable
 
@@ -99,12 +102,14 @@ namespace Internet_Speed
         int ping2HistoryIndex = 0;
         long ping2Sent = 0, ping2Received = 0, ping2Lost = 0, ping2Max = 0, ping2Min = 9001;
         double ping2Average = 0;
+        int ping2TimeoutIndex = 9001;
         
         pingResult[] ping1History = new pingResult[60];
         int ping1HistoryLength = 0;
         int ping1HistoryIndex = 0;
         long ping1Sent = 0, ping1Received = 0, ping1Lost = 0, ping1Max = 0, ping1Min = 9001;
         double ping1Average = 0;
+        int ping1TimeoutIndex = 9001;
 
         #endregion
 
@@ -159,7 +164,7 @@ namespace Internet_Speed
 
             lblUltilization.Text = ultilizationPercent(bytesSentSpeed, bytesReceivedSpeed, networkInterface.Speed, lblUltilization.Text);
 
-            notifyIcon1.Text = "DL: " + lblDownLoad.Text + " UL: " + lblUpload.Text + " Ping: " + lblPingTime1.Text;
+            notifyIcon1.Text = "DL: " + lblDownLoad.Text + " UL: " + lblUpload.Text + ((showPingToolStripMenuItem.Checked) ? " Ping: " + lblPingTime1.Text : "");
 
             // save to history
             receivedHistory[transHistoryIndex] = bytesReceivedSpeed;
@@ -246,6 +251,11 @@ namespace Internet_Speed
                 }
             }
 
+            // a silly solution for a mistery bug that never occurs when debugging but running for real
+            if (!bgwPinger1.IsBusy) bgwPinger1.RunWorkerAsync();
+            if (!bgwPinger2.IsBusy) bgwPinger2.RunWorkerAsync();
+            if (!bgwPinger3.IsBusy) bgwPinger3.RunWorkerAsync();
+
             // calculate average transmitting speed
             long averageReceivingSpeed = 0, averageSendingSpeed = 0;
 
@@ -263,17 +273,30 @@ namespace Internet_Speed
             toolTip1.SetToolTip(lblULSpeed, "Average UL Speed: " + transmittingSpeed(averageSendingSpeed, "0 B/s").ToString());
 
             // tooltip ping
-            toolTip1.SetToolTip(lblPingTime1, "Checked at: " + ping1.ToShortTimeString() + "\nTimeout Limit: " + ping1Timeout.ToString() + "ms");
-            toolTip1.SetToolTip(lblPingTime2, "Checked at: " + ping2.ToShortTimeString() + "\nTimeout Limit: " + ping2Timeout.ToString() + "ms");
-            toolTip1.SetToolTip(lblPingTime3, "Checked at: " + ping3.ToShortTimeString() + "\nTimeout Limit: " + ping3Timeout.ToString() + "ms");
+            toolTip1.SetToolTip(lblPingTime1, "Checked at: " + ping1.ToShortTimeString() + "\nTimeout Limit: " + ping1Timeout.ToString() + "ms" + ((bgwPinger1.IsBusy) ? "" : "\n(Inactive)"));
+            toolTip1.SetToolTip(lblPingTime2, "Checked at: " + ping2.ToShortTimeString() + "\nTimeout Limit: " + ping2Timeout.ToString() + "ms" + ((bgwPinger2.IsBusy) ? "" : "\n(Inactive)"));
+            toolTip1.SetToolTip(lblPingTime3, "Checked at: " + ping3.ToShortTimeString() + "\nTimeout Limit: " + ping3Timeout.ToString() + "ms" + ((bgwPinger3.IsBusy) ? "" : "\n(Inactive)"));
 
             // tooltip ping stats
             int lostPercent3 = (int) ((ping3Sent > 0) ? (100.0 * ping3Lost / ping3Sent) : 0);
-            toolTip1.SetToolTip(lblPing3, "Packets: Sent = " + ping3Sent.ToString() + ", Received = " + ping3Received.ToString() + ", Lost = " + ping3Lost.ToString() + " (" + lostPercent3.ToString() + "% loss)\n" + "Times: Min = " + ping3Min.ToString() + "ms, Max = " + ping3Max.ToString() + "ms, Average = " + String.Format("{0:0}", ping3Average) + "ms");
-            int lostPercent2 = (int) ((ping3Sent > 0) ? (100.0 * ping2Lost / ping3Sent) : 0);
-            toolTip1.SetToolTip(lblPing2, "Packets: Sent = " + ping2Sent.ToString() + ", Received = " + ping2Received.ToString() + ", Lost = " + ping2Lost.ToString() + " (" + lostPercent2.ToString() + "% loss)\n" + "Times: Min = " + ping2Min.ToString() + "ms, Max = " + ping2Max.ToString() + "ms, Average = " + String.Format("{0:0}", ping2Average) + "ms");
-            int lostPercent1 = (int) ((ping3Sent > 0) ? (100.0 * ping1Lost / ping3Sent) : 0);
-            toolTip1.SetToolTip(lblPing1, "Packets: Sent = " + ping1Sent.ToString() + ", Received = " + ping1Received.ToString() + ", Lost = " + ping1Lost.ToString() + " (" + lostPercent1.ToString() + "% loss)\n" + "Times: Min = " + ping1Min.ToString() + "ms, Max = " + ping1Max.ToString() + "ms, Average = " + String.Format("{0:0}", ping1Average) + "ms");
+            int lostPercent2 = (int) ((ping2Sent > 0) ? (100.0 * ping2Lost / ping2Sent) : 0);
+            int lostPercent1 = (int) ((ping1Sent > 0) ? (100.0 * ping1Lost / ping1Sent) : 0);
+
+            string ping3ToolTipInfo = ("Packets: Sent = " + ping3Sent.ToString() + ", Received = " + ping3Received.ToString() + ", Lost = " + ping3Lost.ToString() + " (" + lostPercent3.ToString() + "% loss)\n");
+            ping3ToolTipInfo += ("Times: Min = " + ping3Min.ToString() + "ms, Max = " + ping3Max.ToString() + "ms, Average = " + String.Format("{0:0}", ping3Average) + "ms");
+            //ping3ToolTipInfo += ("\nDebug Info: Index = " + ping3HistoryIndex.ToString() + ", Length = " + ping3HistoryLength.ToString() + ", TimeoutIndex = " + ping3TimeoutIndex.ToString());
+            
+            string ping2ToolTipInfo = ("Packets: Sent = " + ping2Sent.ToString() + ", Received = " + ping2Received.ToString() + ", Lost = " + ping2Lost.ToString() + " (" + lostPercent2.ToString() + "% loss)\n");
+            ping2ToolTipInfo += ("Times: Min = " + ping2Min.ToString() + "ms, Max = " + ping2Max.ToString() + "ms, Average = " + String.Format("{0:0}", ping2Average) + "ms");
+            //ping2ToolTipInfo += ("\nDebug Info: Index = " + ping2HistoryIndex.ToString() + ", Length = " + ping2HistoryLength.ToString() + ", TimeoutIndex = " + ping2TimeoutIndex.ToString());
+
+            string ping1ToolTipInfo = ("Packets: Sent = " + ping1Sent.ToString() + ", Received = " + ping1Received.ToString() + ", Lost = " + ping1Lost.ToString() + " (" + lostPercent1.ToString() + "% loss)\n");
+            ping1ToolTipInfo += ("Times: Min = " + ping1Min.ToString() + "ms, Max = " + ping1Max.ToString() + "ms, Average = " + String.Format("{0:0}", ping1Average) + "ms");
+            //ping1ToolTipInfo += ("\nDebug Info: Index = " + ping1HistoryIndex.ToString() + ", Length = " + ping1HistoryLength.ToString() + ", TimeoutIndex = " + ping1TimeoutIndex.ToString());
+
+            toolTip1.SetToolTip(lblPing3, ping3ToolTipInfo);
+            toolTip1.SetToolTip(lblPing2, ping2ToolTipInfo);
+            toolTip1.SetToolTip(lblPing1, ping1ToolTipInfo);
         }
 
         #region Interface stuffs
@@ -436,7 +459,7 @@ namespace Internet_Speed
                 pingSaveHistory(pingTime, result, ref ping1History, ref ping1HistoryIndex, ref ping1HistoryLength);
 
                 // calculate stats
-                pingStatsCalc(ping1History, ping1HistoryLength, ref ping1Sent, ref ping1Received, ref ping1Lost, ref ping1Max, ref ping1Min, ref ping1Average);
+                pingStatsCalc(ping1History, ping1HistoryLength, ref ping1Sent, ref ping1Received, ref ping1Lost, ref ping1Max, ref ping1Min, ref ping1Average, ref ping1TimeoutIndex);
             }
         }
 
@@ -452,7 +475,7 @@ namespace Internet_Speed
                 pingSaveHistory(pingTime, result, ref ping2History, ref ping2HistoryIndex, ref ping2HistoryLength);
 
                 // calculate stats
-                pingStatsCalc(ping2History, ping2HistoryLength, ref ping2Sent, ref ping2Received, ref ping2Lost, ref ping2Max, ref ping2Min, ref ping2Average);
+                pingStatsCalc(ping2History, ping2HistoryLength, ref ping2Sent, ref ping2Received, ref ping2Lost, ref ping2Max, ref ping2Min, ref ping2Average, ref ping2TimeoutIndex);
             }
         }
 
@@ -464,7 +487,7 @@ namespace Internet_Speed
                 string result;
                 pingRoutime(ping3Timeout, out ping3, out pingTime, out result, this.lblPingTime3);
 
-                // calculate stats // ping3 doesn't need any kind of history
+                // calculate stats // ping3 doesn't need any kind of history storage besides stats
                 if (result.Contains("ms"))
                 {
                     ping3Max = (pingTime > ping3Max) ? pingTime : ping3Max;
@@ -492,11 +515,11 @@ namespace Internet_Speed
             {
                 pingHistory[pingHistoryIndex].OK = false;
             }
-            pingHistoryIndex = (pingHistoryLength < pingHistory.Length - 1) ? pingHistoryIndex + 1 : 0;
+            pingHistoryIndex = (pingHistoryIndex < pingHistory.Length - 1) ? pingHistoryIndex + 1 : 0;
             pingHistoryLength = (pingHistoryLength < pingHistory.Length) ? pingHistoryLength + 1 : pingHistory.Length;
         }
 
-        private void pingStatsCalc(pingResult[] history, int historyLength, ref long pingSent, ref long pingReceived, ref long pingLost, ref long pingMax, ref long pingMin, ref double pingAverage)
+        private void pingStatsCalc(pingResult[] history, int historyLength, ref long pingSent, ref long pingReceived, ref long pingLost, ref long pingMax, ref long pingMin, ref double pingAverage, ref int pingTimeoutIndex)
         {
             pingSent = historyLength;
 
@@ -520,9 +543,10 @@ namespace Internet_Speed
                 else
                 {
                     pingLost++;
+                    pingTimeoutIndex = i;
                 }
             }
-            pingAverage /= pingReceived;
+            pingAverage = (pingReceived > 0) ? (pingAverage / pingReceived) : 0;
         }
 
         #endregion
@@ -633,16 +657,20 @@ namespace Internet_Speed
 
         private void changePingTargetToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            string newTarget = Microsoft.VisualBasic.Interaction.InputBox("Enter one IP or website address:", "Change Ping Target to", "8.8.8.8", 100, 100);
+            string newTarget = Microsoft.VisualBasic.Interaction.InputBox("Enter one IP or website address:", "Change Ping Target to", "8.8.8.8", 234, 234);
+            
             IPAddress trash;
-            if (IPAddress.TryParse(newTarget, out trash))
+            if (newTarget.Length > 0)
             {
-                defaultIP = newTarget;
-            }
-            else
-            {
-                string temp = getIPAddress(getDomainName(newTarget));
-                if (temp.Length > 0) defaultIP = temp;
+                if (IPAddress.TryParse(newTarget, out trash))
+                {
+                    defaultIP = newTarget;
+                }
+                else
+                {
+                    string temp = getIPAddress(getDomainName(newTarget));
+                    if (temp.Length > 0) defaultIP = temp;
+                }
             }
         }
 
