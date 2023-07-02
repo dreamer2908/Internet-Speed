@@ -186,16 +186,16 @@ namespace Internet_Speed
 
         private static string transmittedSize(long lngByte)
         {
-            if (lngByte > 1073741823) return String.Format("{0:0.###}", lngByte / 1073741824.0) + " GB";
-            else if (lngByte > 1048575) return String.Format("{0:0.##}", lngByte / 1048576.0) + " MB";
-            else if (lngByte > 1023) return String.Format("{0:0.##}", lngByte / 1024.0) + " KB";
+            if (lngByte > 1073741823) return String.Format("{0:0.###}", lngByte / 1073741824.0) + " GiB";
+            else if (lngByte > 1048575) return String.Format("{0:0.##}", lngByte / 1048576.0) + " MiB";
+            else if (lngByte > 1023) return String.Format("{0:0.##}", lngByte / 1024.0) + " KiB";
             else return lngByte.ToString() + " B";
         }
 
         private static string transmittingSpeed(long lngSpeed, string old_val)
         {
-            if (lngSpeed > 1048575) return String.Format("{0:0.###}", lngSpeed / 1048576.0) + " MB/s";
-            else if (lngSpeed > 1023) return String.Format("{0:0.##}", lngSpeed / 1024.0) + " KB/s";
+            if (lngSpeed > 1048575) return String.Format("{0:0.###}", lngSpeed / 1048576.0) + " MiB/s";
+            else if (lngSpeed > 1023) return String.Format("{0:0.##}", lngSpeed / 1024.0) + " KiB/s";
             else if (lngSpeed < 0) return old_val; // solution ^^
             else return lngSpeed.ToString() + " B/s";
         }

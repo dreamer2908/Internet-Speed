@@ -61,8 +61,8 @@ namespace Internet_Speed
             this.changePingTargetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.restoreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.trayToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.showPingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.groupBox1.SuspendLayout();
             this.grbInterface.SuspendLayout();
@@ -71,54 +71,60 @@ namespace Internet_Speed
             // 
             // label1
             // 
-            this.label1.Location = new System.Drawing.Point(17, 16);
+            this.label1.Location = new System.Drawing.Point(23, 20);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(75, 23);
+            this.label1.Size = new System.Drawing.Size(100, 28);
             this.label1.TabIndex = 0;
             this.label1.Text = "Link Speed :";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lblSpeed
             // 
-            this.lblSpeed.Location = new System.Drawing.Point(98, 16);
+            this.lblSpeed.Location = new System.Drawing.Point(131, 20);
+            this.lblSpeed.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblSpeed.Name = "lblSpeed";
-            this.lblSpeed.Size = new System.Drawing.Size(75, 23);
+            this.lblSpeed.Size = new System.Drawing.Size(120, 28);
             this.lblSpeed.TabIndex = 1;
             this.lblSpeed.Text = "900.1 Mbps";
             this.lblSpeed.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label2
             // 
-            this.label2.Location = new System.Drawing.Point(17, 62);
+            this.label2.Location = new System.Drawing.Point(23, 76);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(75, 23);
+            this.label2.Size = new System.Drawing.Size(100, 28);
             this.label2.TabIndex = 2;
             this.label2.Text = "Uploaded :";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label3
             // 
-            this.label3.Location = new System.Drawing.Point(17, 39);
+            this.label3.Location = new System.Drawing.Point(23, 48);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(75, 23);
+            this.label3.Size = new System.Drawing.Size(100, 28);
             this.label3.TabIndex = 3;
             this.label3.Text = "Downloaded :";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lblByteSent
             // 
-            this.lblByteSent.Location = new System.Drawing.Point(98, 62);
+            this.lblByteSent.Location = new System.Drawing.Point(131, 76);
+            this.lblByteSent.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblByteSent.Name = "lblByteSent";
-            this.lblByteSent.Size = new System.Drawing.Size(75, 23);
+            this.lblByteSent.Size = new System.Drawing.Size(120, 28);
             this.lblByteSent.TabIndex = 4;
             this.lblByteSent.Text = "9001 MB";
             this.lblByteSent.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblByteReceived
             // 
-            this.lblByteReceived.Location = new System.Drawing.Point(98, 39);
+            this.lblByteReceived.Location = new System.Drawing.Point(131, 48);
+            this.lblByteReceived.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblByteReceived.Name = "lblByteReceived";
-            this.lblByteReceived.Size = new System.Drawing.Size(75, 23);
+            this.lblByteReceived.Size = new System.Drawing.Size(120, 28);
             this.lblByteReceived.TabIndex = 5;
             this.lblByteReceived.Text = "9001 MB";
             this.lblByteReceived.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -131,45 +137,49 @@ namespace Internet_Speed
             // 
             // lblDLSpeed
             // 
-            this.lblDLSpeed.Location = new System.Drawing.Point(179, 39);
+            this.lblDLSpeed.Location = new System.Drawing.Point(239, 48);
+            this.lblDLSpeed.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblDLSpeed.Name = "lblDLSpeed";
-            this.lblDLSpeed.Size = new System.Drawing.Size(75, 23);
+            this.lblDLSpeed.Size = new System.Drawing.Size(100, 28);
             this.lblDLSpeed.TabIndex = 6;
             this.lblDLSpeed.Text = "DL Speed :";
             this.lblDLSpeed.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lblULSpeed
             // 
-            this.lblULSpeed.Location = new System.Drawing.Point(179, 62);
+            this.lblULSpeed.Location = new System.Drawing.Point(239, 76);
+            this.lblULSpeed.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblULSpeed.Name = "lblULSpeed";
-            this.lblULSpeed.Size = new System.Drawing.Size(75, 23);
+            this.lblULSpeed.Size = new System.Drawing.Size(100, 28);
             this.lblULSpeed.TabIndex = 7;
             this.lblULSpeed.Text = "UL Speed :";
             this.lblULSpeed.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lblDownLoad
             // 
-            this.lblDownLoad.Location = new System.Drawing.Point(260, 39);
+            this.lblDownLoad.Location = new System.Drawing.Point(347, 48);
+            this.lblDownLoad.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblDownLoad.Name = "lblDownLoad";
-            this.lblDownLoad.Size = new System.Drawing.Size(75, 23);
+            this.lblDownLoad.Size = new System.Drawing.Size(120, 28);
             this.lblDownLoad.TabIndex = 8;
             this.lblDownLoad.Text = "9001 KB/s";
             this.lblDownLoad.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblUpload
             // 
-            this.lblUpload.Location = new System.Drawing.Point(260, 62);
+            this.lblUpload.Location = new System.Drawing.Point(347, 76);
+            this.lblUpload.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblUpload.Name = "lblUpload";
-            this.lblUpload.Size = new System.Drawing.Size(75, 23);
+            this.lblUpload.Size = new System.Drawing.Size(120, 28);
             this.lblUpload.TabIndex = 9;
             this.lblUpload.Text = "9001 KB/s";
             this.lblUpload.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // groupBox1
             // 
-            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.Controls.Add(this.lblPing3);
             this.groupBox1.Controls.Add(this.lblPing2);
             this.groupBox1.Controls.Add(this.lblPing1);
@@ -188,94 +198,106 @@ namespace Internet_Speed
             this.groupBox1.Controls.Add(this.lblDLSpeed);
             this.groupBox1.Controls.Add(this.lblByteSent);
             this.groupBox1.Controls.Add(this.lblByteReceived);
-            this.groupBox1.Location = new System.Drawing.Point(12, 67);
+            this.groupBox1.Location = new System.Drawing.Point(16, 82);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(495, 98);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Size = new System.Drawing.Size(660, 121);
             this.groupBox1.TabIndex = 10;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Activity";
             // 
             // lblPing3
             // 
-            this.lblPing3.Location = new System.Drawing.Point(341, 62);
+            this.lblPing3.Location = new System.Drawing.Point(455, 76);
+            this.lblPing3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPing3.Name = "lblPing3";
-            this.lblPing3.Size = new System.Drawing.Size(50, 23);
+            this.lblPing3.Size = new System.Drawing.Size(67, 28);
             this.lblPing3.TabIndex = 0;
             this.lblPing3.Text = "Ping :";
             this.lblPing3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lblPing2
             // 
-            this.lblPing2.Location = new System.Drawing.Point(341, 39);
+            this.lblPing2.Location = new System.Drawing.Point(455, 48);
+            this.lblPing2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPing2.Name = "lblPing2";
-            this.lblPing2.Size = new System.Drawing.Size(50, 23);
+            this.lblPing2.Size = new System.Drawing.Size(67, 28);
             this.lblPing2.TabIndex = 0;
             this.lblPing2.Text = "Ping :";
             this.lblPing2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lblPing1
             // 
-            this.lblPing1.Location = new System.Drawing.Point(341, 16);
+            this.lblPing1.Location = new System.Drawing.Point(455, 20);
+            this.lblPing1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPing1.Name = "lblPing1";
-            this.lblPing1.Size = new System.Drawing.Size(50, 23);
+            this.lblPing1.Size = new System.Drawing.Size(67, 28);
             this.lblPing1.TabIndex = 0;
             this.lblPing1.Text = "Ping :";
             this.lblPing1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label7
             // 
-            this.label7.Location = new System.Drawing.Point(179, 16);
+            this.label7.Location = new System.Drawing.Point(239, 20);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(75, 23);
+            this.label7.Size = new System.Drawing.Size(100, 28);
             this.label7.TabIndex = 0;
             this.label7.Text = "Ultilization :";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lblPingTime3
             // 
-            this.lblPingTime3.Location = new System.Drawing.Point(397, 62);
+            this.lblPingTime3.Location = new System.Drawing.Point(529, 76);
+            this.lblPingTime3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPingTime3.Name = "lblPingTime3";
-            this.lblPingTime3.Size = new System.Drawing.Size(75, 23);
+            this.lblPingTime3.Size = new System.Drawing.Size(100, 28);
             this.lblPingTime3.TabIndex = 1;
             this.lblPingTime3.Text = "0 ms";
             this.lblPingTime3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblPingTime2
             // 
-            this.lblPingTime2.Location = new System.Drawing.Point(397, 39);
+            this.lblPingTime2.Location = new System.Drawing.Point(529, 48);
+            this.lblPingTime2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPingTime2.Name = "lblPingTime2";
-            this.lblPingTime2.Size = new System.Drawing.Size(75, 23);
+            this.lblPingTime2.Size = new System.Drawing.Size(100, 28);
             this.lblPingTime2.TabIndex = 1;
             this.lblPingTime2.Text = "0 ms";
             this.lblPingTime2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblPingTime1
             // 
-            this.lblPingTime1.Location = new System.Drawing.Point(397, 16);
+            this.lblPingTime1.Location = new System.Drawing.Point(529, 20);
+            this.lblPingTime1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPingTime1.Name = "lblPingTime1";
-            this.lblPingTime1.Size = new System.Drawing.Size(75, 23);
+            this.lblPingTime1.Size = new System.Drawing.Size(100, 28);
             this.lblPingTime1.TabIndex = 1;
             this.lblPingTime1.Text = "0 ms";
             this.lblPingTime1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblUltilization
             // 
-            this.lblUltilization.Location = new System.Drawing.Point(260, 16);
+            this.lblUltilization.Location = new System.Drawing.Point(347, 20);
+            this.lblUltilization.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblUltilization.Name = "lblUltilization";
-            this.lblUltilization.Size = new System.Drawing.Size(75, 23);
+            this.lblUltilization.Size = new System.Drawing.Size(120, 28);
             this.lblUltilization.TabIndex = 1;
             this.lblUltilization.Text = "90.01 %";
             this.lblUltilization.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // grbInterface
             // 
-            this.grbInterface.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.grbInterface.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.grbInterface.Controls.Add(this.btnRefresh);
             this.grbInterface.Controls.Add(this.cbbInterfaces);
-            this.grbInterface.Location = new System.Drawing.Point(12, 12);
+            this.grbInterface.Location = new System.Drawing.Point(16, 15);
+            this.grbInterface.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.grbInterface.Name = "grbInterface";
-            this.grbInterface.Size = new System.Drawing.Size(495, 49);
+            this.grbInterface.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.grbInterface.Size = new System.Drawing.Size(660, 60);
             this.grbInterface.TabIndex = 11;
             this.grbInterface.TabStop = false;
             this.grbInterface.Text = "Interface";
@@ -284,12 +306,13 @@ namespace Internet_Speed
             // 
             this.btnRefresh.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnRefresh.Image = ((System.Drawing.Image)(resources.GetObject("btnRefresh.Image")));
-            this.btnRefresh.Location = new System.Drawing.Point(464, 17);
+            this.btnRefresh.Location = new System.Drawing.Point(619, 21);
+            this.btnRefresh.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(25, 26);
+            this.btnRefresh.Size = new System.Drawing.Size(33, 32);
             this.btnRefresh.TabIndex = 1;
             this.toolTip1.SetToolTip(this.btnRefresh, "Left click to refresh interface list. Right click to stick/unstick current interf" +
-                    "ace.");
+        "ace.");
             this.btnRefresh.UseVisualStyleBackColor = true;
             this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             this.btnRefresh.MouseDown += new System.Windows.Forms.MouseEventHandler(this.btnRefresh_MouseDown);
@@ -297,13 +320,14 @@ namespace Internet_Speed
             // 
             // cbbInterfaces
             // 
-            this.cbbInterfaces.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbbInterfaces.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.cbbInterfaces.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbInterfaces.FormattingEnabled = true;
-            this.cbbInterfaces.Location = new System.Drawing.Point(20, 19);
+            this.cbbInterfaces.Location = new System.Drawing.Point(27, 23);
+            this.cbbInterfaces.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cbbInterfaces.Name = "cbbInterfaces";
-            this.cbbInterfaces.Size = new System.Drawing.Size(438, 21);
+            this.cbbInterfaces.Size = new System.Drawing.Size(583, 24);
             this.cbbInterfaces.TabIndex = 0;
             this.toolTip1.SetToolTip(this.cbbInterfaces, "Currently active network interface list");
             this.cbbInterfaces.SelectedIndexChanged += new System.EventHandler(this.cbbInterfaces_SelectedIndexChanged);
@@ -328,63 +352,65 @@ namespace Internet_Speed
             // 
             // cmsTrayMenu
             // 
+            this.cmsTrayMenu.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.cmsTrayMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.changePingTargetToolStripMenuItem,
             this.restoreToolStripMenuItem,
             this.trayToolStripMenuItem,
-            this.exitToolStripMenuItem,
-            this.showPingToolStripMenuItem});
+            this.showPingToolStripMenuItem,
+            this.exitToolStripMenuItem});
             this.cmsTrayMenu.Name = "cmsTrayMenu";
-            this.cmsTrayMenu.Size = new System.Drawing.Size(235, 136);
+            this.cmsTrayMenu.Size = new System.Drawing.Size(257, 124);
             // 
             // changePingTargetToolStripMenuItem
             // 
             this.changePingTargetToolStripMenuItem.Name = "changePingTargetToolStripMenuItem";
-            this.changePingTargetToolStripMenuItem.Size = new System.Drawing.Size(234, 22);
+            this.changePingTargetToolStripMenuItem.Size = new System.Drawing.Size(256, 24);
             this.changePingTargetToolStripMenuItem.Text = "Change ping target...";
             this.changePingTargetToolStripMenuItem.Click += new System.EventHandler(this.changePingTargetToolStripMenuItem_Click);
             // 
             // restoreToolStripMenuItem
             // 
             this.restoreToolStripMenuItem.Name = "restoreToolStripMenuItem";
-            this.restoreToolStripMenuItem.Size = new System.Drawing.Size(234, 22);
+            this.restoreToolStripMenuItem.Size = new System.Drawing.Size(256, 24);
             this.restoreToolStripMenuItem.Text = "Restore";
             this.restoreToolStripMenuItem.Click += new System.EventHandler(this.restoreToolStripMenuItem_Click);
             // 
             // trayToolStripMenuItem
             // 
             this.trayToolStripMenuItem.Name = "trayToolStripMenuItem";
-            this.trayToolStripMenuItem.Size = new System.Drawing.Size(234, 22);
+            this.trayToolStripMenuItem.Size = new System.Drawing.Size(256, 24);
             this.trayToolStripMenuItem.Text = "Keep Tray Icon";
             this.trayToolStripMenuItem.Click += new System.EventHandler(this.trayToolStripMenuItem_Click);
-            // 
-            // exitToolStripMenuItem
-            // 
-            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(234, 22);
-            this.exitToolStripMenuItem.Text = "Exit";
-            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
             // showPingToolStripMenuItem
             // 
             this.showPingToolStripMenuItem.CheckOnClick = true;
             this.showPingToolStripMenuItem.Name = "showPingToolStripMenuItem";
-            this.showPingToolStripMenuItem.Size = new System.Drawing.Size(234, 22);
+            this.showPingToolStripMenuItem.Size = new System.Drawing.Size(256, 24);
             this.showPingToolStripMenuItem.Text = "Show Ping info in Tray Icon";
+            // 
+            // exitToolStripMenuItem
+            // 
+            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(256, 24);
+            this.exitToolStripMenuItem.Text = "Exit";
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
             // frmMainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(519, 177);
+            this.ClientSize = new System.Drawing.Size(692, 218);
             this.Controls.Add(this.grbInterface);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MaximizeBox = false;
             this.Name = "frmMainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Internet Speed";
+            this.Text = "Internet Speed 1.7";
             this.Resize += new System.EventHandler(this.frmMainForm_Resize);
             this.groupBox1.ResumeLayout(false);
             this.grbInterface.ResumeLayout(false);
